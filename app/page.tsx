@@ -10,21 +10,21 @@ export default function Home() {
     <main className={styles.container}>
       <section className={styles.hero}>
         <div className={styles.content}>
-          <h1 className={styles.title}>Monitoramento simples. Insights poderosos.</h1>
+          <h1 className={styles.title}>SIGMA-grade Monitoring for Critical Systems</h1>
           <p className={styles.lead}>
-            Observe seus serviços em tempo real, detecte anomalias e aja antes que
-            problemas afetem seus usuários.
+            Monitoramento de alarmes e infraestrutura com latência mínima, alertas
+            confiáveis e painéis claros — projetado para operações críticas.
           </p>
 
           <div className={styles.ctaRow}>
-            <Link href="/dashboard" className={styles.ctaPrimary}>Experimentar grátis</Link>
-            <Link href="/dashboard" className={styles.ctaSecondary}>Ver demonstração</Link>
+            <Link href="/dashboard" className={styles.ctaPrimary}>Iniciar avaliação gratuita</Link>
+            <Link href="/docs" className={styles.ctaSecondary}>Documentação</Link>
           </div>
 
           <ul className={styles.features}>
-            <li>Alertas em tempo real</li>
-            <li>Dashboards customizáveis</li>
-            <li>Integração simples</li>
+            <li>Alta disponibilidade</li>
+            <li>Alertas com routing inteligente</li>
+            <li>Dashboard auditável</li>
           </ul>
         </div>
 
@@ -37,9 +37,9 @@ export default function Home() {
         <div className={styles.benefitInner}>
           <img src="/landing-cta.svg" alt="Setup rápido" />
           <div>
-            <h3>Pronto em minutos</h3>
-            <p>Configuração leve, painéis que entregam valor imediatamente.</p>
-            <Link href="/dashboard" className={styles.ctaInline}>Começar agora — é grátis</Link>
+            <h3>Deploy em minutos</h3>
+            <p>Integração simples via webhooks, SDKs e rules — comece a receber alertas já.</p>
+            <Link href="/dashboard" className={styles.ctaInline}>Começar agora</Link>
           </div>
         </div>
       </section>
