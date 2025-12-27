@@ -1,11 +1,12 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
-// Backup of middleware.ts — renamed to avoid Next.js middleware/proxy conflict.
-export function middleware(req: NextRequest) {
+// Legacy backup of previous middleware logic.
+// This file is intentionally NOT exporting `middleware` or `config` to
+// prevent Next.js from detecting it during build. Keep as reference only.
+function authGuard(req: NextRequest) {
   const { pathname } = req.nextUrl;
 
-  // Allow Next.js internals, static assets and public files
   if (
     pathname.startsWith("/_next") ||
     pathname.startsWith("/static") ||
@@ -15,12 +16,10 @@ export function middleware(req: NextRequest) {
     return NextResponse.next();
   }
 
-  // Allow auth API endpoints (used to set cookie) and public pages
   if (pathname.startsWith("/api/auth") || pathname === "/" || pathname === "/login") {
     return NextResponse.next();
   }
 
-  // For all other routes, require the sb-access-token cookie
   const token = req.cookies.get("sb-access-token")?.value;
   if (!token) {
     const url = req.nextUrl.clone();
@@ -31,6 +30,4 @@ export function middleware(req: NextRequest) {
   return NextResponse.next();
 }
 
-export const config = {
-  matcher: ["/:path*"],
-};
+// End of legacy backup.
