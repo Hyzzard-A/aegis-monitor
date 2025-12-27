@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
+// Backup of middleware.ts — renamed to avoid Next.js middleware/proxy conflict.
 export function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
 
