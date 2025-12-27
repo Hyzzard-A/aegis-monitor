@@ -2,7 +2,7 @@
 
 import { useState, FormEvent, ChangeEvent } from "react";
 import { Lock, Mail, Loader2 } from "lucide-react";
-import { supabase } from "@/app/lib/supabase";
+import { getSupabaseClient } from "@/app/lib/supabase";
 import { useRouter } from "next/navigation";
 
 export default function LoginForm() {
@@ -26,6 +26,7 @@ export default function LoginForm() {
     try {
       setLoading(true);
 
+      const supabase = getSupabaseClient();
       const { data, error } = await supabase.auth.signInWithPassword({
         email,
         password,

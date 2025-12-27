@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Sidebar from "@/components/dashboard/Sidebar";
 import Header from "@/components/dashboard/Header";
-import { supabase } from "@/app/lib/supabase";
+import { getSupabaseClient } from "@/app/lib/supabase";
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
   const router = useRouter();
@@ -13,20 +13,26 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
   useEffect(() => {
     let mounted = true;
 
-    supabase.auth
-      .getSession()
-      .then(({ data }) => {
-        const session = data?.session;
-        if (!mounted) return;
-        if (!session) {
-          router.replace("/login");
-        } else {
-          setChecking(false);
-        }
-      })
-      .catch(() => {
-        if (mounted) router.replace("/login");
-      });
+    try {
+      const supabase = getSupabaseClient();
+      supabase.auth
+        .getSession()
+        .then(({ data }) => {
+          const session = data?.session;
+          if (!mounted) return;
+          if (!session) {
+            router.replace("/login");
+          } else {
+            setChecking(false);
+          }
+        })
+        .catch(() => {
+          if (mounted) router.replace("/login");
+        });
+    } catch (err) {
+      // If Supabase client cannot be created (e.g. during SSR), redirect to login on mount
+      if (mounted) router.replace("/login");
+    }
 
     return () => {
       mounted = false;
