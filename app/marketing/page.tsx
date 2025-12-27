@@ -3,7 +3,7 @@ import Features from "@/components/landing/Features";
 import HowWorks from "@/components/landing/HowWorks";
 import Footer from "@/components/landing/Footer";
 
-export default function Home() {
+export default function Marketing() {
   return (
     <main className="bg-black min-h-screen">
       <Hero />
