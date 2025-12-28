@@ -1,33 +1,7 @@
-"use client";
-
-import React from "react";
-
-type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
-  variant?: "default" | "outline";
-  className?: string;
-};
-
-export function Button({ variant = "default", className = "", children, ...props }: ButtonProps) {
-  const base = "inline-flex items-center justify-center rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2";
-  const variants: Record<string, string> = {
-    default: "bg-yellow-500 hover:bg-yellow-400 text-black",
-    outline: "bg-transparent border border-yellow-500 text-yellow-400 hover:bg-yellow-500 hover:text-black",
-  };
-
-  const classes = `${base} ${variants[variant]} ${className}`.trim();
-
-  return (
-    <button {...props} className={classes}>
-      {children}
-    </button>
-  );
-}
-
-export default Button;
 import * as React from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
-import { cn } from "@/lib/utils";
+import { cn } from "../../app/lib/utils";
 
 const buttonVariants = cva(
   "inline-flex items-center justify-center rounded-md text-sm font-medium transition focus-visible:outline-none focus-visible:ring-2 disabled:opacity-50 disabled:pointer-events-none",
@@ -78,3 +52,4 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 Button.displayName = "Button";
 
 export { Button, buttonVariants };
+
