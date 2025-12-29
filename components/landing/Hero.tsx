@@ -26,7 +26,7 @@ export default function Hero() {
           <div className="flex gap-4 mt-8">
             <Button
               className="px-6 py-6 bg-yellow-500 hover:bg-yellow-400 text-black font-semibold"
-              onClick={() => (window.location.href = "/login")}
+              onClick={() => window.location.href = "/login"}
             >
               Entrar no Sistema
             </Button>
