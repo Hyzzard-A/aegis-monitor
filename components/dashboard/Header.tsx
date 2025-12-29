@@ -25,7 +25,7 @@ export default function Header() {
             L
           </div>
           <div className="text-sm">
-            <p className="text-white">Luiz Gustavo</p>
+            <p className="text-white">Teste</p>
             <span className="text-zinc-500 text-xs">Admin</span>
           </div>
         </div>
