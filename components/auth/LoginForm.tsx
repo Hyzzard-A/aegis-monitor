@@ -59,7 +59,7 @@ export default function LoginForm() {
   }
 
   return (
-    <form onSubmit={handleLogin} className="space-y-4">
+    <form onSubmit={handleLogin} className="space-y-4 border border-zinc-800 bg-zinc-900/50 p-6 rounded-xl">
       {errorMsg && (
         <div className="bg-red-500/10 border border-red-500 text-red-400 p-3 rounded-md text-sm">
           {errorMsg}
