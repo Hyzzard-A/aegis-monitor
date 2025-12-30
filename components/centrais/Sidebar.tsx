@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 
 const menu = [
   { label: "Visão Geral", icon: LayoutDashboard, href: "/dashboard" },
-  { label: "Centrais", icon: Server, href: "/dashboard/centrais" },
+  { label: "Centrais", icon: Server, href: "" },
   { label: "Eventos", icon: ShieldAlert, href: "/dashboard/eventos" },
   { label: "Configurações", icon: Settings, href: "/dashboard/config" },
 ];
