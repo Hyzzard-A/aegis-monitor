@@ -25,7 +25,7 @@ export default function DashboardPage() {
       <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-5 mt-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <p className="text-sm text-zinc-400">Gráfico de centrais (em breve)</p>
-        <p className="text-yellow-400 mt-2">[Gráfico Placeholder]</p>
+        <p className="text-yellow-400">[Gráfico Placeholder]</p>
         </div>
       </div>
     </div>
